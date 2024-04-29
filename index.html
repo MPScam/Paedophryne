@@ -17,11 +17,12 @@ Click <a href="no-javascript.html" id="getNumber">here</a> to get your number.
      <title>Generating a Random Number</title>
 </head>
 <body>
+    
      <div id="myNumber"></div>
-     Click <a href="no-javascript.html" id="getNumber"&>here</a> to get your number.
+     Click <a id="getNumber"& >here</a> to get your number.
      <script>
           var link = document.getElementById('getNumber');
-          link.onclick = getNumber;
+          link.onclick = getNumber();
           function getNumber() {
                var minNumber = 0;
                var maxNumber = 100;
