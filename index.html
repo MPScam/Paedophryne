@@ -1,10 +1,25 @@
 <html>
     <head>
+
+        
+        <!--
         <script src="https://randojs.com/1.0.0.js"></script>
+        -->
+        
         <script>
-            function showRandomNumber(){
-                document.getElementById("myNumber").innerHTML = rando(5, 10);
+
+            // Generate a random number between 2 and 10, including both 2 and 10
+            function generateRandomIntegerInRange(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+
+                
             }
+            function showRandomNumber(){
+                document.getElementById("myNumber").innerHTML = generateRandomIntegerInRange(1,20);
+            }
+            
+
+            
         </script>
         <style>
             #myNumber{
@@ -15,7 +30,9 @@
             }
         </style>
     </head>
-    <body onload="showRandomNumber();">
+
+    
+    <body onload="generateRandomIntergerRange(1,20);">
         <div id="myNumber"></div>
     </body>
 </html>
