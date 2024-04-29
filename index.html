@@ -1,36 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- The code for the tutorial starts here -->
-
-
-<div id="myNumber"></div>
-<!-- Your number will appear in here -->
-
-Click <a id="getNumber">here</a> to get your number.
-
-<!-- Link to get number. If the user has no JS enabled it will redirect to no-javascript.html -->
-
-<br /><br />
-<pre style="font-size:90%">
-    
-<html>
 <head>
-     <title>Generating a Random Number</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Number Generator</title>
 </head>
+
 <body>
+	<h1>Random Number Generator</h1>
+	<p>Enter the lower and upper bounds to generate a random number:</p>
+	<label for="lowerBound">Lower Bound:</label>
+	<input type="number" id="lowerBound" min="0" step="1">
+	<label for="upperBound">Upper Bound:</label>
+	<input type="number" id="upperBound" min="0" step="1">
+	<button onclick="generateRandomNumber()">Generate</button>
+	<p id="result"></p>
+
+<script>
+	function generateRandomNumber() {
+    		var lowerBound = parseInt(document.getElementById("lowerBound").value);
+    		var upperBound = parseInt(document.getElementById("upperBound").value);
     
-     <div id="myNumber"></div>
-     Click <a id="getNumber"& >here</a> to get your number.
-     <script>
-          var link = document.getElementById('getNumber');
-          link.onclick = getNumber();
-          function getNumber() {
-               var minNumber = 0;
-               var maxNumber = 100;
-               var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
-               //<!--('#myNumber').html(randomnumber); -->
-               return randomnumber;
-          }
-     </script>
+    	// Check if both bounds are valid numbers
+    		if (isNaN(lowerBound) || isNaN(upperBound)) {
+        		document.getElementById("result").innerText = "Please enter valid numbers for both bounds.";
+        		return;
+    		}
+    
+    	// Ensure upper bound is greater than lower bound
+    		if (lowerBound >= upperBound) {
+        		document.getElementById("result").innerText = "Upper bound must be greater than lower bound.";
+        		return;
+    		}
+    
+    	// Generate random number
+    		var randomNumber = Math.floor(Math.random() * (upperBound - lowerBound + 1)) + lowerBound;
+    
+    	// Display the result
+    		document.getElementById("result").innerText = "Random number: " + randomNumber;
+	}
+</script>
+
 </body>
+
 </html>
-</pre>
