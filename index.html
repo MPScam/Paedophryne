@@ -1,38 +1,35 @@
-<html>
-    <head>
 
-        
-        <!--
-        <script src="https://randojs.com/1.0.0.js"></script>
-        -->
-        
-        <script>
+<!-- The code for the tutorial starts here -->
 
-            // Generate a random number between 2 and 10, including both 2 and 10
-            function generateRandomIntegerInRange(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
 
-                
-            }
-            function showRandomNumber(){
-                document.getElementById("myNumber").innerHTML = generateRandomIntegerInRange(1,20);
-            }
-            
+<div id="myNumber"></div>
+<!-- Your number will appear in here -->
 
-            
-        </script>
-        <style>
-            #myNumber{
-                font-size:100px;
-                text-align:center;
-                margin:50px auto;
-                font-family:Arial, sans-serif;
-            }
-        </style>
-    </head>
+Click <a href="no-javascript.html" id="getNumber">here</a> to get your number.
 
+<!-- Link to get number. If the user has no JS enabled it will redirect to no-javascript.html -->
+
+<br /><br />
+<pre style="font-size:90%">
     
-    <body onload="generateRandomIntergerRange(1,20);">
-        <div id="myNumber"></div>
-    </body>
+<html>
+<head>
+     <title>Generating a Random Number</title>
+</head>
+<body>
+     <div id="myNumber"></div>
+     Click <a href="no-javascript.html" id="getNumber"&>here</a> to get your number.
+     <script>
+          var link = document.getElementById('getNumber');
+          link.onclick = getNumber;
+          function getNumber() {
+               var minNumber = 0;
+               var maxNumber = 100;
+               var randomnumber = Math.floor(Math.random() * (maxNumber + 1) + minNumber);
+               $('#myNumber').html(randomnumber);
+               return false;
+          }
+     </script>
+</body>
 </html>
+</pre>
